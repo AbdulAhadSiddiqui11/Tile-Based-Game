@@ -16,7 +16,7 @@ WIDTH = 800
 # Height of 592 equals 37 tiles. (592/16)
 HEIGHT = 592
 FPS = 60
-TITLE = "First game!"
+TITLE = "Tile Based Game!"
 BGCOLOR = DARKGREY
 
 # Grid size.
