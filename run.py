@@ -3,6 +3,7 @@ import sys
 from os import path
 from settings import *
 from sprites import *
+from tilemap import *
 
 class Game:
     def __init__(self):
@@ -17,13 +18,8 @@ class Game:
     def load_data(self):
         # Path for the game folder
         game_dir = path.dirname(__file__)
-        # Empty list to store map map_data, availale throught the game class (self)
-        self.map_data = []
-        # Open the map file
-        with open (path.join(game_dir, 'map.txt'), 'r') as map:
-            for line in map:
-                # Each line is a string
-                self.map_data.append(str(line).strip('\n'))
+        # object consisting of map properties
+        self.map = Map(path.join(game_dir, 'map2.txt'))
 
 
     def new(self):
@@ -36,7 +32,7 @@ class Game:
             # Draw a wall from
             Wall(self, x, 10)
 
-        for row, tiles in enumerate(self.map_data):
+        for row, tiles in enumerate(self.map.map_data):
             # for each row (line) get all the tiles(string of tiles)
             for col, tile in enumerate(tiles):
                 # for each tile in that row check if its a wall at (col,row)
@@ -44,6 +40,7 @@ class Game:
                     Wall(self,col,row)
                 if tile == 'p':
                     self.player = Player(self, 10, 10)
+        self.camera = Camera(self.map.width, self.map.height)
 
 
     def run(self):
@@ -63,6 +60,7 @@ class Game:
     def update(self):
         # update portion of the game loop
         self.all_sprites.update()
+        self.camera.update(self.player)
 
     def draw_grid(self):
         # Drawing a grid with width x height
@@ -76,7 +74,8 @@ class Game:
         # Draw sprits, objects/obstacles and Background.
         self.screen.fill(BGCOLOR)
         self.draw_grid()
-        self.all_sprites.draw(self.screen)
+        for sprite in self.all_sprites:
+            self.screen.blit(sprite.image, self.camera.apply(sprite))
         pg.display.flip()
 
     def events(self):
