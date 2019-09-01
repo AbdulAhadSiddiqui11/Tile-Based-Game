@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Basic template constructed.
-=======
 Basic template constructed.
 Added wall collisions and maps functionality!
->>>>>>> Added wall collisions and map functionality
+Enhanced player movement!
