@@ -1,5 +1,9 @@
 import pygame as pg
 import sys
+<<<<<<< HEAD
+=======
+from os import path
+>>>>>>> Added wall collisions and map functionality
 from settings import *
 from sprites import *
 
@@ -14,16 +18,37 @@ class Game:
         self.load_data()
 
     def load_data(self):
+<<<<<<< HEAD
         pass
+=======
+        # Path for the game folder
+        game_dir = path.dirname(__file__)
+        # Empty list to store map map_data, availale throught the game class (self)
+        self.map_data = []
+        # Open the map file
+        with open (path.join(game_dir, 'map.txt'), 'r') as map:
+            for line in map:
+                # Each line is a string
+                self.map_data.append(str(line).strip('\n'))
+>>>>>>> Added wall collisions and map functionality
 
     def new(self):
         # initialize all variables and do all the setup for a new game
         self.all_sprites = pg.sprite.Group()
         self.walls = pg.sprite.Group()
         self.player = Player(self, 10, 10)
+<<<<<<< HEAD
         for x in range(20, 40):
             # Draw a wall from
             Wall(self, x, 10)
+=======
+        for row, tiles in enumerate(self.map_data):
+            # for each row (line) get all the tiles(string of tiles)
+            for col, tile in enumerate(tiles):
+                # for each tile in that row check if its a wall at (col,row)
+                if tile == 'w':
+                    Wall(self,col,row)
+>>>>>>> Added wall collisions and map functionality
 
     def run(self):
         # game loop - set self.playing = False to end the game
