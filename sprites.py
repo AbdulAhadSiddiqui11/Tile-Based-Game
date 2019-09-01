@@ -10,21 +10,12 @@ class Player(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
         self.image = pg.Surface((TILESIZE, TILESIZE))
-<<<<<<< HEAD
-        self.image.fill(BLUE)
-=======
         self.image.fill(WHITE)
->>>>>>> Added wall collisions and map functionality
         self.rect = self.image.get_rect()
         self.x = x
         self.y = y
 
-<<<<<<< HEAD
-    def move(self, dx=0, dy=0):
-        # Update the coordinates of player when called (KEYDOWN).
-        self.x += dx
-        self.y += dy
-=======
+
     def move(self, dx = 0, dy = 0):
         # Check if there's a wall/obstacle on (dx,dy),
         # If not then update the coordinates of player when called (KEYDOWN).
@@ -37,7 +28,6 @@ class Player(pg.sprite.Sprite):
             if wall.x == self.x + dx and wall.y == self.y + dy :
                 return True
         return False
->>>>>>> Added wall collisions and map functionality
 
     def update(self):
         # Draw the player at new coordinates
