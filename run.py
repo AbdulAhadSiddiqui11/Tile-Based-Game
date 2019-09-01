@@ -30,7 +30,7 @@ class Game:
         # initialize all variables and do all the setup for a new game
         self.all_sprites = pg.sprite.Group()
         self.walls = pg.sprite.Group()
-        self.player = Player(self, 10, 10)
+
 
         for x in range(20, 40):
             # Draw a wall from
@@ -42,6 +42,8 @@ class Game:
                 # for each tile in that row check if its a wall at (col,row)
                 if tile == 'w':
                     Wall(self,col,row)
+                if tile == 'p':
+                    self.player = Player(self, 10, 10)
 
 
     def run(self):
@@ -82,18 +84,6 @@ class Game:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.quit()
-            if event.type == pg.KEYDOWN:
-                # If key is pressed check for which key.
-                if event.key == pg.K_ESCAPE:
-                    self.quit()
-                if event.key == pg.K_LEFT:
-                    self.player.move(dx = -1)
-                if event.key == pg.K_RIGHT:
-                    self.player.move(dx = 1)
-                if event.key == pg.K_UP:
-                    self.player.move(dy = -1)
-                if event.key == pg.K_DOWN:
-                    self.player.move(dy = 1)
 
     def show_start_screen(self):
         pass
