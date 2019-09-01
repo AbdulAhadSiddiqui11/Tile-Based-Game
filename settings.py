@@ -11,15 +11,10 @@ YELLOW = (255, 255, 0)
 # Game settings
 
 # Background , Resolution and Title.
-<<<<<<< HEAD
-WIDTH = 720
-HEIGHT = 480
-=======
 # We're using 16x16 tiles so width 800 equals 50 tiles.
 WIDTH = 800
 # Height of 592 equals 37 tiles. (592/16)
 HEIGHT = 592
->>>>>>> Added wall collisions and map functionality
 FPS = 60
 TITLE = "First game!"
 BGCOLOR = DARKGREY
