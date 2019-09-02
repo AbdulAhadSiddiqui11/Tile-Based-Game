@@ -1,4 +1,15 @@
-Basic template constructed.
-Added wall collisions and maps functionality!
-Enhanced player movement!
-Added camera functionality!
+Commit 1 : Basic template constructed.
+
+Commit 2 : Added wall collisions and maps functionality!
+
+Commit 3 : Enhanced player movement!
+
+Commit 4 : Added camera functionality!
+
+Commit 5 : Enhanced Camera functionality
+           Enhanced character Movement
+           Replaced static velocity and position variables with vectors
+           Added player sprites
+           Added omni-directional player sprits
+           added TiledMap class to read tmx files
+           improved sample map to for testing

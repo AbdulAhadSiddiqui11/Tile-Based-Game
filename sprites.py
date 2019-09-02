@@ -1,5 +1,7 @@
 import pygame as pg
 from settings import *
+vec = pg.math.Vector2
+
 
 class Player(pg.sprite.Sprite):
     # Player class inherits from Sprtie class and defines player characteristics.
@@ -9,61 +11,65 @@ class Player(pg.sprite.Sprite):
         # Initilize the Sprite class with player's group.
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
-        self.image = pg.Surface((TILESIZE, TILESIZE))
-        self.image.fill(WHITE)
+        # Creating local vars for directional player sprites
+        self.img_right, self.img_left, self.img_up, self.img_down = game.player_sprite_right,\
+         game.player_sprite_left, game.player_sprite_up, game.player_sprite_down
+        self.image = game.player_sprite_right # Loading player sprite into player object
         self.rect = self.image.get_rect()
-        self.x = x * TILESIZE
-        self.y = y * TILESIZE
+        self.velocity = vec(0,0) # Defining velocity and position vectors
+        self.position = vec(x,y) * TILESIZE
 
     def get_keys(self):
         # Gets the value of key pressed
-        self.vel_x, self.vel_y = 0,0
+        self.velocity = vec(0,0)
         # Velocities of x and y
         keys = pg.key.get_pressed()
         if keys[pg.K_LEFT] or keys[pg.K_a]:
-            self.vel_x = - PLAYER_SPEED
+            self.velocity.x = - PLAYER_SPEED
+            self.image = self.img_left
         if keys[pg.K_RIGHT] or keys[pg.K_d]:
-            self.vel_x =  PLAYER_SPEED
+            self.velocity.x =  PLAYER_SPEED
+            self.image = self.img_right
         if keys[pg.K_UP] or keys[pg.K_w]:
-            self.vel_y = - PLAYER_SPEED
+            self.velocity.y = - PLAYER_SPEED
+            self.image = self.img_up
         if keys[pg.K_DOWN] or keys[pg.K_s]:
-            self.vel_y =  PLAYER_SPEED
+            self.velocity.y =  PLAYER_SPEED
+            self.image = self.img_down
         # To reduce the Velocities of diagonal movement!
-        if self.vel_x != 0 and self.vel_y != 0:
+        if self.velocity.x != 0 and self.velocity.y != 0:
             # If two keys (up,right) or (down,left) ... etc then reduce the speed
-            self.vel_x *= 0.7071  # Diagonal from Pythagorous' theorem
-            self.vel_y *= 0.7071
+            self.velocity *= 0.7071  # Diagonal from Pythagorous' theorem
 
     def collision(self, direction):
         if direction == 'x':
             hits = pg.sprite.spritecollide(self, self.game.walls, False)
             if hits:
-                if self.vel_x > 0: # Means player was moving right and hit the left side of the wall.
-                    self.x = hits[0].rect.left - self.rect.width
+                if self.velocity.x > 0: # Means player was moving right and hit the left side of the wall.
+                    self.position.x = hits[0].rect.left - self.rect.width
                     # hits[0] -> hit is a hit, doesn't matter with which wall we collided with.
-                if self.vel_x < 0 : # Player was moving left.
-                    self.x = hits[0].rect.right
-                self.vel_x = 0
-                self.rect.x = self.x
+                if self.velocity.x < 0 : # Player was moving left.
+                    self.position.x = hits[0].rect.right
+                self.velocity.x = 0
+                self.rect.x = self.position.x
         if direction == 'y':
             hits = pg.sprite.spritecollide(self, self.game.walls, False)
             if hits:
-                if self.vel_y > 0: # Means player was moving down.
-                    self.y = hits[0].rect.top - self.rect.height
+                if self.velocity.y > 0: # Means player was moving down.
+                    self.position.y = hits[0].rect.top - self.rect.height
                     # hits[0] -> hit is a hit, doesn't matter with which wall we collided with.
-                if self.vel_y < 0 : # Player was moving up.
-                    self.y = hits[0].rect.bottom
-                self.vel_y = 0
-                self.rect.y = self.y
+                if self.velocity.y < 0 : # Player was moving up.
+                    self.position.y = hits[0].rect.bottom
+                self.velocity.y = 0
+                self.rect.y = self.position.y
 
     def update(self):
         # Draw the player at new coordinates
         self.get_keys()
-        self.x += self.vel_x * self.game.dt
-        self.y += self.vel_y * self.game.dt
-        self.rect.x = self.x
+        self.position += self.velocity * self.game.dt
+        self.rect.x = self.position.x
         self.collision('x')
-        self.rect.y = self.y
+        self.rect.y = self.position.y
         self.collision('y')
 
 class Wall(pg.sprite.Sprite):
