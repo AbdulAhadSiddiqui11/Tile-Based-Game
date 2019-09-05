@@ -24,7 +24,7 @@ class Game:
         # Path for game maps
         maps_dir = path.join(game_dir, 'maps')
         # Initilizing map object with starting map as argument
-        self.map = TiledMap(path.join(maps_dir, 'Game_map.tmx'))
+        self.map = TiledMap(path.join(maps_dir, 'Beach_map.tmx'))
         # Rendering the map from map(tmx file)
         self.map_img = self.map.make_map()
         self.map_rect = self.map_img.get_rect()
@@ -48,7 +48,7 @@ class Game:
                 if tile == 'p':
                     self.player = Player(self, col, row)'''
         for tile_object in self.map.tmx_data.objects:
-            if tile_object.name == 'trees':
+            if tile_object.name == 'obstacle':
                 Obstacle(self, tile_object.x, tile_object.y, tile_object.width, tile_object.height)
             if tile_object.type == 'obstacle':
                 Obstacle(self, tile_object.x, tile_object.y, tile_object.width, tile_object.height)
