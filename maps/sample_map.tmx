@@ -1,31 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" name="Roguelike" tilewidth="16" tileheight="16" spacing="1">
-  <image source="C:\Users\abdul\Desktop\Tile-Based-Game\maps\roguelikeSheet_transparent.png" width="968" height="526"/>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="51">
+ <tileset firstgid="1" name="Roguelike" tilewidth="16" tileheight="16" spacing="1" tilecount="1767" columns="57">
+  <image source="roguelikeSheet_transparent.png" width="968" height="526"/>
  </tileset>
- <layer name="Ground/terrain" width="100" height="100">
+ <tileset firstgid="1768" source="../../Tiled Maps/Tile Sheet.tsx"/>
+ <layer id="1" name="Ground/terrain" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt100KwjAQgNGA1kOptZfy5/pGEKyhdiXOYN7i7Qc+ZkKmUsoEAAAAAAD8pV0jep6etS000QM9svnUQY9cXaLn6d2m2jaGBHP16liNjVOCuXrR7sNZj1BL+6CHHuiRzePtWHov9Iixthv76vp0SzBrD9Z62Im8PfzVf+NSXjfpUN5vlRsVa74rblW8+a7YDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4njvz4JUG
+   eJzt10kKwkAQQNEGB/BKTrmUww09ly0IxiZmaRXpt3j7Ip+qJkMpZQAAAAAAABZp24iep2dtC030QI9sfnXQI1eX6Hl6t6rWjU2CuXp1rE6Nc4K5etHuw0WPUFP7oIce6JHN6+2Yei/0iDG3G/vq9nZPMGsP5nrYibw9/Kv/x7V8btKhfN8qNyrWeFfcqnjjXbEbAAAAAAAAAAAAZPDYxYv+BgAAAAAAAAAAAAAAAAAAAMAyPAFd/6eW
   </data>
  </layer>
- <layer name="Ground overlay" width="100" height="100">
+ <layer id="2" name="Ground overlay" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt1VsKglAUhtGDPnSbVGnjiOZRjaMaVo0oIw+IEEhJ7mAt+N9lfxxMCQAAAAAAxrMoUlq2WxVTfw1V06Butx3Q41KmdO2MceR3UXe2HvBG+j00+U7usOm1GPpG9BhX9aZD3lGPnzq0N5/3OsyanT74f+gxjtwlb0iLJz1i0SMWPWLRIxY9YtEjFj1i0SOOfXP7c3t/PaZ3b26/8z5CuZWvLt0BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/5QHqND18
   </data>
  </layer>
- <layer name="Objects" width="100" height="100">
+ <layer id="3" name="Objects" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt2s1qFEEQwPHs18FTTooixOjJR4g+QcCLWQVfQIMbTz6AyMIqahS9aPCqdxUfIhFUBC9eFQ/qW9jNTJPa2uqerwXNzP8Hzex87G7omurqns3KCgAAAAAAAAAcTVv9f/0XtMOlvr2t45Hx3rE49rJX/7O7wPf9rG9vg5nRx9axYOLO7Yjzu5F4bJJPC2Kx0P2dyplT6twrt/+6b18j4zElHguK8iNsrXz47o79yI/rnIgdY7xKS+WHlScxMie+9RaPfe1l7QXxSKoTi9Q8Sp67a5zX+bHKmDUnFoOwLZrDlq3J4TofD+p4XFHd0NdqZWvyVMSDOh6XGqv0WqJsLUlJ1fM3rr117V3zrzmyyqw/vNM1YvHEeE+Ih/88PW79cu23a3+qf1VrlKnl1jh1pmaupNYf6+7cWdfOdXgOVmZepffX8n0Zk2ejct/n48GcKs6aV4V8uD2Mv2+tQp9uuM/ZH2SvQ34QE5s1r7LqR2CNUxuJuGmsz9OarssDq3bLeh3imIrHxOXQrUG1720ba6zSsZD9NHbbK/nrq/nWioVnrTNCPHTfX3b1Z9vt3+x4PFK1O4xZZfvpWn7900Rt9/G43qfvy5J1Y693+BzwfYP6K5+56PHqZ4Xa0zV6rGpSe/X867j4zIejxfa45Hy57VK/A8biIe/3fXd/H7j2Ib/PZQ0PMZF59kW8jrUus+ZRm2oupPtc2hkcNi9Vw2Oa/F7fBVMVD9nnByo2k/x4ap5atAZcxnPKtgnPcq3a6/v8wTDr8wujrF3Mx3s/T7oh5krWbxusAZvZUvkxGczniM4Hf93J/LXPrXFBHTrmYnt+EG+whX68N8xywLf7w/l8kNeFOO4m4lH03IqxKy7040e3/ZS3z73F+71oDkt+NLeXmJvq43r/udq/k9/zPNOtr8n/gRTVb/KjujpzolU1D4jR642i/01F1qcnGrw3kH0d+1/HsM+6MK7JmkG+d1bh3ic34pYVDywH8fi/EI/2IB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACD4CwlywUw=
   </data>
  </layer>
- <layer name="Doors/windows/roof" width="100" height="100">
+ <layer id="4" name="Doors/windows/roof" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt17EuBEEYB/A5uSvwDBqd3qFGhUaj8QxEQ6vRewuOxyCh5SHo1Uh8m4hcuLu1uTm7Ob9fMslmtpjJ/9vZbzclAAAAAAAAABjfZoz5ujfBl6VWSi91bwLGtDBT9w7ot6cewD/30E7psV33LprvJjK6zZzT9+zv4nq2k9JcJ+860+goMnrLXI8i+9O+7Nfiej3GhnqUWo6MuplzGpT9cfwPnrTyrjNtriOfpxjPcmqkXf8ejVb0+vsJ9HuGG5X5azH3i35/4FxlMyrzote/t8v7/YV6ZFOW+U7FXn8YtVlRn4nZHzB3PiLvy7jX67vfU5vKtv7oe3dbbSpnsDjmequx3tXnml3vrh/OGpKHszFZw/JdHTLflOdiWpXlO6hezkh9nAcAAAAAAAAAAAAAAAAAAAAAAAAAAACAaj4AcbclqQ==
   </data>
  </layer>
- <layer name="Roof object" width="100" height="100">
+ <layer id="5" name="Roof object" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJztzgENAAAIA6CbyP7tjKGbkIAEAAAAAAAAAAAAAG7q2h4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHw3dOgAx
   </data>
  </layer>
+ <objectgroup id="6" name="Obstacles">
+  <object id="10" name="trees" x="276" y="248" width="100" height="224"/>
+  <object id="11" name="trees" x="832" y="304" width="36" height="28"/>
+  <object id="12" name="trees" x="816" y="420" width="48" height="56"/>
+  <object id="13" name="trees" x="416" y="536" width="48" height="80"/>
+  <object id="14" name="trees" x="464" y="560" width="48" height="56"/>
+  <object id="15" name="trees" x="644" y="280" width="24" height="20"/>
+  <object id="16" name="trees" x="612" y="248" width="24" height="20"/>
+  <object id="17" name="trees" x="564" y="280" width="24" height="20"/>
+  <object id="18" name="trees" x="528" y="524" width="48" height="64"/>
+  <object id="19" name="trees" x="540" y="512" width="24" height="12"/>
+  <object id="20" name="trees" x="692" y="540" width="8" height="20"/>
+  <object id="21" name="trees" x="804" y="552" width="8" height="20"/>
+  <object id="22" name="trees" x="852" y="600" width="8" height="20"/>
+  <object id="23" name="trees" x="852" y="660" width="8" height="20"/>
+  <object id="24" name="trees" x="836" y="632" width="8" height="20"/>
+  <object id="25" name="trees" x="772" y="664" width="8" height="20"/>
+  <object id="26" name="trees" x="804" y="680" width="8" height="20"/>
+  <object id="27" name="trees" x="836" y="692" width="8" height="20"/>
+  <object id="28" name="trees" x="740" y="676" width="8" height="20"/>
+  <object id="30" name="trees" x="708" y="696" width="8" height="20"/>
+  <object id="31" name="trees" x="660" y="696" width="8" height="20"/>
+  <object id="32" name="trees" x="644" y="656" width="8" height="8"/>
+  <object id="33" name="trees" x="596" y="580" width="8" height="20"/>
+  <object id="34" name="trees" x="612" y="600" width="8" height="20"/>
+  <object id="35" name="trees" x="596" y="532" width="8" height="20"/>
+  <object id="36" name="trees" x="356" y="548" width="8" height="20"/>
+  <object id="37" name="trees" x="324" y="520" width="8" height="20"/>
+  <object id="38" name="trees" x="276" y="536" width="8" height="20"/>
+  <object id="39" name="trees" x="276" y="472" width="8" height="20"/>
+  <object id="40" name="trees" x="340" y="468" width="8" height="20"/>
+  <object id="41" name="trees" x="292" y="616" width="8" height="20"/>
+  <object id="42" name="trees" x="644" y="456" width="8" height="20"/>
+  <object id="43" name="trees" x="420" y="392" width="8" height="20"/>
+  <object id="44" name="trees" x="404" y="276" width="8" height="20"/>
+  <object id="45" name="trees" x="388" y="292" width="8" height="20"/>
+  <object id="46" name="trees" x="436" y="260" width="8" height="20"/>
+  <object id="47" name="trees" x="532" y="324" width="8" height="20"/>
+  <object id="48" name="trees" x="452" y="340" width="8" height="20"/>
+  <object id="49" name="trees" x="676" y="228" width="8" height="20"/>
+  <object id="50" name="trees" x="692" y="328" width="8" height="20"/>
+ </objectgroup>
 </map>
